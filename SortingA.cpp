@@ -43,3 +43,44 @@ int SortingA::partition(std::vector<int>& arr, std::vector<std::string>& arrS, i
 	swap(&arr[i + 1], &arr[high],&arrS[i + 1], &arrS[high]);
 	return (i + 1);
 }
+
+std::vector<int> SortingA::busquedaBin(const std::vector<int>& lista, int n,int mesI,int diaI, int mesF, int diaF)
+{
+    int claveI = (mesI * 100000000) + (diaI * 1000000);
+    int claveF = (mesF * 100000000) + (diaF * 1000000);
+
+    int bajo, alto, med;
+    int centralI = 0;
+    int centralF = n - 1;
+
+    bajo = 0;
+    alto = n - 1;
+    while (bajo <= alto) {
+        med = bajo + (alto - bajo) / 2;
+        if (lista[med] >= claveI) {
+            centralI = med;
+            alto = med - 1;
+        }
+        else {
+            bajo = med + 1;
+        }
+    }
+
+    bajo = 0;
+    alto = n - 1;
+    while (bajo <= alto) {
+        med = bajo + (alto - bajo) / 2;
+        if (lista[med] <= claveF) {
+            centralF = med;
+            bajo = med + 1; 
+        }
+        else {
+            alto = med - 1;
+        }
+    }
+
+    std::vector<int> result;
+    result.push_back(centralI);
+    result.push_back(centralF);
+    return result;
+}
