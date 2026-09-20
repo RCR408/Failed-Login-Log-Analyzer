@@ -28,6 +28,6 @@ int main()
     SortingA::quickSort(fecha, text, 0, fecha.size()-1);
 
     std::vector<int> i = SortingA::busquedaBin(fecha, fecha.size(), mesDiccionario["Jul"], 2, mesDiccionario["Sep"], 3);
-    std::cout << text[i[0]] << std::endl << text[i[1]];
+    bitacora::buscar_fechas("Result.txt", text, i[0], i[1]);
 
 }

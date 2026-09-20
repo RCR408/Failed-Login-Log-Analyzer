@@ -99,3 +99,15 @@ std::vector<int> bitacora::get_Fecha() {
 std::vector<std::string> bitacora::get_Text() {
     return Text;
 }
+
+void bitacora::buscar_fechas(std::string name, const std::vector<std::string>& text,int min, int max) {
+    std::ofstream archivo;
+
+    archivo.open(name, std::ofstream::out, std::ofstream::trunc);
+
+    for (int i = min; i <= max; i++) {
+        archivo << text[i] << std::endl;
+    }
+
+    archivo.close();
+}

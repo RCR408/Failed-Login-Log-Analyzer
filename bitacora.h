@@ -23,4 +23,5 @@ public:
 	void set_fecha();
 	std::vector<int> get_Fecha();
 	std::vector<std::string> get_Text();
+	static void buscar_fechas(std::string, const std::vector<std::string>&,int, int);
 };
